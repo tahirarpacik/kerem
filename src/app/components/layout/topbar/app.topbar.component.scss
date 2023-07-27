@@ -1,0 +1,15 @@
+a.active {
+  color: rgb(43, 63, 117);
+  font-size: 24px;
+  padding: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .mobile-only {
+    display: block;
+  }
+}
+
+.mobile-only {
+  display: none;
+}

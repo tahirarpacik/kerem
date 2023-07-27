@@ -1,0 +1,40 @@
+<p-toast [baseZIndex]="9999999"></p-toast>
+<p-toast
+  position="top-center"
+  key="c"
+  (onClose)="onReject()"
+  [baseZIndex]="5000"
+>
+  <ng-template let-message pTemplate="message">
+    <div class="flex flex-column" style="flex: 1">
+      <div class="text-center">
+        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+        <h4>{{ message.summary }}</h4>
+        <h5>Kalan Süre: {{ authService.fark }} sn</h5>
+        <p>{{ message.detail }}</p>
+        <br />
+      </div>
+      <div class="grid p-fluid">
+        <div class="col-6">
+          <button
+            type="button"
+            pButton
+            (click)="onConfirm()"
+            label="Evet"
+            class="p-button-success"
+          ></button>
+        </div>
+        <div class="col-6">
+          <button
+            type="button"
+            pButton
+            (click)="onReject()"
+            label="Hayır"
+            class="p-button-secondary"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-toast>
+<router-outlet></router-outlet>

@@ -1,0 +1,39 @@
+<div class="col-md-12 text-center mb-3 mt-3">
+  <h2 class="text-primary"></h2>
+</div>
+<ngx-loading [show]="loading"></ngx-loading>
+
+<div class="flex-container" style="margin-top: 5rem">
+  <!--Sol Kart Üzeri Alan-->
+  <div class="card col-md-6" style="background: white">
+    <div
+      class="card-body text-center mb-4 mt-4"
+      style="cursor: pointer"
+      (click)="privateSurveyCreator()"
+    >
+      <img
+        src="../../../../assets/demo/images/ozelKatilim.gif"
+        style="width: 200px"
+        alt="OzelKatilim"
+      />
+      <h4 class="text-center">Özel Katılım</h4>
+    </div>
+  </div>
+
+  <!--Sol Kart Üzeri Alan-->
+
+  <div class="card col-md-6" style="background: white">
+    <div
+      class="card-body text-center mb-4 mt-4"
+      style="cursor: pointer"
+      (click)="generalSurveyCreator()"
+    >
+      <img
+        src="../../../../assets/demo/images/genelKatilim.gif"
+        style="width: 200px"
+        alt="GenelKatilim"
+      />
+      <h4 class="text-center">Genel Katılım</h4>
+    </div>
+  </div>
+</div>

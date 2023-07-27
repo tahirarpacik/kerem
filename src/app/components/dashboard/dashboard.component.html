@@ -1,0 +1,19 @@
+
+
+<!--<div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem">-->
+<!--    <div>Başlıyoruz</div>-->
+
+<!--</div>-->
+<!--<div class="iframe-container">-->
+
+<!--<div class="sketchfab-embed-wrapper">-->
+<!--  <iframe title="Frank Lloyd Wright - Fallingwater House" frameborder="0" allowfullscreen-->
+<!--          mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"-->
+<!--          xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share-->
+<!--          src="https://sketchfab.com/models/8b8ee19ab4594f7287f24a0dbfd83a51/embed"></iframe>-->
+<!--</div>-->
+<!--</div>-->
+
+<div class="black-background" (click)="toggleDotPosition()">
+    <div class="white-dot" [style.left.px]="dotPositionX" [style.top.px]="dotPositionY" (click)="stopPropagation($event)"></div>
+</div>

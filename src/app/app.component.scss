@@ -1,0 +1,47 @@
+:host ::ng-deep {
+  .p-toast-message-custom {
+    background-color: #e1cfe7;
+    border: solid #8a427a;
+    border-width: 0 0 0 6px;
+    color: #3d0a0a;
+    .p-toast-icon-close {
+      color: #2c1e30;
+    }
+  }
+}
+
+.app-root {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.app-content {
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+.navbar {
+  background-color: #be5d1d;
+  padding: 16px;
+}
+.navbar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+.navbar a {
+  line-height: 24px;
+  text-decoration: none;
+  color: #ffdec0;
+}
+.navbar a:hover {
+  color: #6d4343;
+}
+.navbar ul {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+}

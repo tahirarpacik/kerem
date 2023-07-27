@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://api.ipify.org?format=json",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

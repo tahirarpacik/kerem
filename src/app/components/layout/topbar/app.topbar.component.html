@@ -1,0 +1,185 @@
+<div
+  class="py-3 px-6 shadow-2 flex align-items-center justify-content-between relative"
+  style="background-color: white; height: 80px"
+>
+  <ul>
+    <i
+      *ngIf="isMobile()"
+      class="pi pi-bars"
+      style="
+        font-size: 2rem;
+        margin: 0 auto;
+        cursor: pointer;
+        background-color: #fff;
+        color: rgb(43, 63, 117);
+      "
+      (click)="menuVisible = !menuVisible"
+    ></i>
+
+    <p-sidebar
+      position="left"
+      styleclass="layout-config-sidebar w-18rem"
+      class="p-element ng-tns-c33-1 ng-star-inserted"
+      [(visible)]="menuVisible"
+    >
+      <ul
+        class="list-none p-0 m-0 flex lg:align-items-center text-gray-400 select-none flex-column lg:flex-row"
+      >
+        <li>
+          <a
+            pripple=""
+            routerLink="/"
+            routerLinkActive="active"
+            class="p-ripple p-element flex px-0 lg:px-5 py-3 hover:text-blue-600 font-medium transition-colors transition-duration-150 cursor-pointer"
+            style="font-size: 20px"
+            (click)="menuVisible = false"
+          >
+            <span style="font-weight: 900">Anasayfa</span
+            ><span class="p-ink"></span>
+          </a>
+        </li>
+
+        <li>
+          <a
+            *ngIf="
+              currentUser ||
+              currentUser?.kullaniciTipi === adminKullanici
+            "
+            pripple=""
+            routerLink="/anketlerim"
+            routerLinkActive="active"
+            class="p-ripple p-element flex px-0 lg:px-5 py-3 hover:text-blue-600 font-medium transition-colors transition-duration-150 cursor-pointer active-page"
+            style="font-size: 20px"
+            (click)="menuVisible = false"
+            ><span style="font-weight: 900">Projelerim</span
+            ><span class="p-ink"></span
+          ></a>
+        </li>
+
+        <li>
+          <a
+            *ngIf="!currentUser"
+            pripple=""
+            routerLink="/login"
+            routerLinkActive="active"
+            class="p-ripple p-element flex px-0 lg:px-5 py-3 hover:text-blue-600 font-medium transition-colors transition-duration-150 cursor-pointer active-page"
+            style="font-size: 20px"
+            (click)="menuVisible = false"
+            ><span style="font-weight: 900">Oturum Aç</span
+            ><span class="p-ink"></span
+          ></a>
+        </li>
+        <li>
+          <a
+            *ngIf="!currentUser"
+            pripple=""
+            routerLink="/register"
+            routerLinkActive="active"
+            class="p-ripple p-element flex px-0 lg:px-5 py-3 hover:text-blue-600 font-medium transition-colors transition-duration-150 cursor-pointer active-page"
+            style="font-size: 20px"
+            (click)="menuVisible = false"
+            ><span style="font-weight: 900">Kayıt Ol</span
+            ><span class="p-ink"></span
+          ></a>
+        </li>
+        <li>
+          <a
+            *ngIf="currentUser"
+            pripple=""
+            class="p-ripple p-element flex px-0 lg:px-5 py-3 hover:text-blue-600 font-medium transition-colors transition-duration-150 cursor-pointer active-page"
+            style="font-size: 20px"
+            (click)="menuVisible = false; logout()"
+            ><span style="font-weight: 900">Çıkış Yap</span
+            ><span class="p-ink"></span
+          ></a>
+        </li>
+
+      </ul>
+    </p-sidebar>
+
+    &nbsp;&nbsp;&nbsp;
+    <img
+      src="assets/demo/images/kerem_logo.png"
+      alt="Image"
+      height="60"
+      routerLink="/"
+      style="cursor: pointer"
+    /><a
+      pripple=""
+      pstyleclass="@next"
+      enterclass="hidden"
+      leavetoclass="hidden"
+      class="p-ripple p-element cursor-pointer block lg:hidden text-gray-400"
+    ></a>
+  </ul>
+
+  <div
+    class="align-items-center flex-grow-1 justify-content-between hidden lg:flex absolute lg:static w-full left-0 top-100 px-6 lg:px-0 shadow-2 lg:shadow-none"
+  >
+    <section></section>
+    <ul
+      class="list-none p-0 m-0 flex lg:align-items-center text-gray-400 select-none flex-column lg:flex-row"
+    >
+      <li>
+        <a
+          pripple=""
+          routerLink="/"
+          class="p-ripple p-element flex px-0 lg:px-5 py-3 hover:text-blue-600 font-medium transition-colors transition-duration-150 cursor-pointer"
+          style="font-size: 15px"
+        >
+          <span style="font-weight: 900">Anasayfa</span
+          ><span class="p-ink"></span>
+        </a>
+      </li>
+
+      <li
+        *ngIf="
+          currentUser ||
+          currentUser?.kullaniciTipi === adminKullanici
+        "
+      >
+        <a
+          pripple=""
+          routerLink="/anketlerim"
+          routerLinkActive="active"
+          class="p-ripple p-element flex px-0 lg:px-5 py-3 hover:text-blue-600 font-medium transition-colors transition-duration-150 cursor-pointer active-page"
+          style="font-size: 15px"
+          ><span style="font-weight: 900">Projelerim</span
+          ><span class="p-ink"></span
+        ></a>
+      </li>
+
+    </ul>
+    <div
+      class="flex justify-content-between lg:block border-top-1 lg:border-top-none border-gray-800 py-3 lg:py-0 mt-3 lg:mt-0"
+    >
+      <button
+        *ngIf="!currentUser"
+        pbutton=""
+        pripple=""
+        routerLink="/login"
+        label="Login"
+        class="p-element p-ripple p-button-text font-bold p-button p-component"
+      >
+        <span class="p-button-label">Oturum Aç</span
+        ><span class="p-ink"></span></button
+      ><button
+        *ngIf="!currentUser"
+        pbutton=""
+        routerLink="/register"
+        pripple=""
+        label="Register"
+        class="p-element p-ripple ml-3 font-bold p-button p-component"
+      >
+        <span class="p-button-label">Üye Ol</span><span class="p-ink"></span>
+      </button>
+
+      <p-splitButton
+        *ngIf="currentUser"
+        label="{{ currentUser.username }}"
+        icon="pi pi-user"
+        [model]="items"
+      ></p-splitButton>
+    </div>
+  </div>
+</div>

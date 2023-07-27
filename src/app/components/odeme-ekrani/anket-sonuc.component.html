@@ -1,0 +1,84 @@
+<div style="text-align: center">
+  <h4><b>Anket Görüntüleme Sayfası</b></h4>
+  <h6>
+    <b
+      >Anketinizi Görüntülemesini İstediğiniz Kişilerle Aşağıdaki Linki
+      Paylaşabilirsiniz.</b
+    >
+  </h6>
+
+  <br />
+
+  <div>
+    <div style="text-align: center">
+      <h5><b>Anket Linki</b></h5>
+    </div>
+
+    <!-- TODO DİKKAT HTTPS'YE ÇEVİRİLECEK -->
+    <div style="display: inline-block">
+      <a href="{{ link }}" target="_blank">{{ link }}</a
+      ><br />
+      <!-- <button
+        pripple=""
+        (click)="share()"
+        class="p-ripple p-element p-button p-component"
+        type="button"
+      >
+        <span
+          aria-hidden="true"
+          class="pi pi-link p-button-icon p-button-icon-left ng-star-inserted"
+        ></span
+        ><span class="p-button-label ng-star-inserted" aria-hidden="false"
+          >Linki Kopyala</span
+        ><span class="p-ink"></span>
+      </button> -->
+
+      <!-- <p-button
+        icon="pi pi-link"
+        (click)="share()"
+        tooltip="Kopyala"
+        styleClass="p-button-rounded p-button"
+      >
+      </p-button> -->
+
+      <div *ngIf="ticketService.surveyInfo.surveySchema?.shareCode">
+        <br />
+        <i class="pi-info-circle" style="font-size: 0, 5rem"></i>Bu anket sadece
+        yukarıdaki linke sahip kişiler tarafından doldurulabilir.
+
+        <br />
+        <br />
+        <h1 style="letter-spacing: 15px">
+          {{ ticketService.surveyInfo.surveySchema.shareCode }}
+        </h1>
+        <i class="pi-info-circle"></i>Link ile birlikte lütfen bu kodu da
+        paylaşın. Anketi doldurmadan önce bu kod ile doğrulama yapılması
+        gerekmektedir.
+      </div>
+
+      <!-- <div
+      *ngIf="ticketService.surveyInfo.surveySchema?.shareCode"
+      style="display: inline-block; font-size: 1.2em"
+    >
+    
+      Paylaşım Kodu <b>{{ ticketService.surveyInfo.surveySchema.shareCode }}</b>
+    </div> -->
+    </div>
+    <br /><br /><br />
+
+    <button
+      pripple=""
+      (click)="share()"
+      class="p-ripple p-element p-button p-component"
+      type="button"
+    >
+      <span
+        aria-hidden="true"
+        class="pi pi-share-alt p-button-icon p-button-icon-left ng-star-inserted"
+      ></span
+      ><span class="p-button-label ng-star-inserted" aria-hidden="false"
+        >Anketi Paylaş</span
+      ><span class="p-ink"></span>
+    </button>
+  </div>
+</div>

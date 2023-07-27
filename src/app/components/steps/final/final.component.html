@@ -1,0 +1,139 @@
+<!-- <div class="container"  style="text-align: center;">
+  <div class="card col-md-12">
+    <img src="../../../../assets/demo/images/ozelKatilim.gif" style="width:200px;" alt="OzelKatilim">
+        
+    <h5><span style="font-weight: bold;">Anket Sonunda Sonuçları Göster</span></h5>
+    <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+    <hr style="border-top: 1px solid grey; margin: 20px 0" />
+    <div class="switches" style="text-align:center;">
+      <h5><span style="font-weight: bold;">Doğrulama</span></h5>
+      <div
+        style="align-items: center"
+      >
+      <img src="../../../../assets/demo/images/ozelKatilim.gif" style="width:200px;" alt="OzelKatilim">
+        
+        <p style="margin-right: 10px">Anket Sonuçlarını SMS Doğrulama Koduyla Doğrula</p>
+        <p-inputSwitch [(ngModel)]="checked1"></p-inputSwitch>
+      </div>
+
+      <div
+        style="align-items: center"
+      ><img src="../../../../assets/demo/images/ozelKatilim.gif" style="width:200px;" alt="OzelKatilim">
+        
+        <p>Anket Sonuçlarını e-Posta Doğrulama Koduyla Doğrula</p>
+        <div style="margin-left: 10px"></div>
+        <p-inputSwitch [(ngModel)]="checked2"></p-inputSwitch>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<ngx-loading [show]="loading"></ngx-loading>
+
+<div class="col-md-12 text-center mb-3 mt-3">
+  <h2 class="text-primary"></h2>
+</div>
+
+<div class="grid grid-nogutter justify-content-center">
+  <p-button
+    label="Geri"
+    [routerLink]="'/basvuru/creator'"
+    icon="pi pi-angle-left"
+  ></p-button>
+  &nbsp; &nbsp;
+  <br />
+  <p-button
+    (click)="saveSurveytoDB()"
+    label="Tamamla"
+    icon="pi pi-angle-right"
+    iconPos="right"
+    styleClass="p-button-success"
+  ></p-button>
+</div>
+
+<div class="flex-container" style="margin-top: 5rem">
+  <!--Üst Kart Üzeri Alan-->
+  <div class="card col-md-6" style="background: white">
+    <div class="card-body text-center mt-4" style="cursor: pointer">
+      <img
+        src="../../../../assets/demo/images/statistics.gif"
+        style="width: 200px"
+        alt="OzelKatilim"
+      />
+      <p style="margin-right: 10px">Tamamlandığında Sonuçları Göster</p>
+      <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+    </div>
+  </div>
+</div>
+
+<hr style="border: 5px solid #000000; border-radius: 5px; margin: 30px 0" />
+<div class="col-md-12 text-center mb-3 mt-3">
+  <h3><span style="font-weight: 600">Doğrulama Yöntemi</span></h3>
+</div>
+<div class="col-md-12 text-center mb-3 mt-3">
+  <h2 class="text-primary"></h2>
+</div>
+
+<div class="flex-container" style="margin-top: 3rem">
+  <!--Sol Kart Üzeri Alan-->
+  <div class="card col-md-6" style="background: white">
+    <div class="card-body text-center mb-4 mt-4" style="cursor: pointer">
+      <img
+        src="../../../../assets/demo/images/phoneVerification.gif"
+        style="width: 200px"
+        alt="OzelKatilim"
+      />
+      <p style="margin-right: 10px">Cevapları SMS Kodu Göndererek Doğrula</p>
+      <p-inputSwitch
+        (click)="userPermissControl()"
+        [disabled]="currentUser.kullaniciTipi == 'STANDART'"
+        [(ngModel)]="checked1"
+        (onChange)="checked2 = checked3 = false"
+      ></p-inputSwitch>
+    </div>
+  </div>
+
+  <!--Sol Kart Üzeri Alan-->
+
+  <div class="card col-md-6" style="background: white">
+    <div class="card-body text-center mb-4 mt-4" style="cursor: pointer">
+      <img
+        src="../../../../assets/demo/images/mailVerification.gif"
+        style="width: 200px"
+        alt="OzelKatilim"
+      />
+
+      <p>Cevapları e-Posta Kodu Göndererek Doğrula</p>
+      <div style="margin-left: 10px"></div>
+      <p-inputSwitch
+        [(ngModel)]="checked2"
+        (onChange)="checked1 = checked3 = false"
+      ></p-inputSwitch>
+    </div>
+  </div>
+
+  <div class="card col-md-6" style="background: white">
+    <div class="card-body text-center mb-4 mt-4" style="cursor: pointer">
+      <img
+        src="../../../../assets/demo/images/ipVerification.gif"
+        style="width: 200px"
+        alt="OzelKatilim"
+      />
+
+      <p>Cevapları IP Adresleri Kontrol Ederek Doğrula</p>
+      <div style="margin-left: 10px"></div>
+      <p-inputSwitch
+        [(ngModel)]="checked3"
+        (onChange)="checked1 = checked2 = false"
+      ></p-inputSwitch>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12 text-center mb-3 mt-3">
+  <p>
+    <i class="pi pi-exclamation-triangle"></i>
+
+    Seçeneklerden sadece bir tanesi kullanılabilir.
+  </p>
+</div>
